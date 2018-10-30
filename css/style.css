@@ -1,0 +1,224 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* General */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    height: 100vh;
+    background-color: #008080;
+    /* #23b0a8 */
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row
+}
+
+.column {
+    display: flex;
+    flex-direction: column
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+/* 
+Calculator  */
+
+.calculator{
+    width: 25rem;
+    height: 37.5rem;
+    box-shadow: 3px 3px 4px 1px rgba(118, 119, 123, 0.35);
+    margin: auto;
+}
+
+.output-field {
+    height: 30%;
+    color: black; 
+    background-color: white;
+    position: relative;
+    z-index: 99;
+    box-shadow: 0px 1px 3px 0px rgba(118, 119, 123, 0.3);
+}
+
+.output-primary, .output-secondary{
+    padding: 0 1rem;
+}
+
+.output-primary {
+    height: 60%;
+    font-size: 3rem;
+}
+
+.output-secondary {
+    height: 40%;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.5)
+}
+.output-primary input, .output-secondary input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: right;
+    font: inherit;
+    color: inherit
+}
+
+.input-field {
+    height: 70%;
+    font-size: 2rem;
+}
+
+.num-field {
+    width: 75%;
+    color: black;
+    background-color: #EEEEEE;
+}
+
+.num, #delete {
+    width: 33.33333333%;
+    height: 25%;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.num:hover, #delete:hover {
+    background-color: #2d39421a;
+}
+
+.operator-field {
+    width: 25%;
+    background-color: #DAF7A6  ;
+}
+
+.operator, #equally {
+    width: 100%;
+    height: 20%;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.operator:hover, #equally:hover {
+    background-color: #DAF7A6  ;
+}
+
+.num, .operator, #equally, #delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+
+/*
+* Buttons
+*/
+#dot {
+    font-weight: normal
+}
+
+#delete {
+    font-size: 1.3rem
+}
+
+/*
+* Media queries
+*/
+
+@media screen and (max-width: 640px) {
+    body {
+        display: initial;
+    }
+
+    .calculator {
+        height: 100vh;
+        width: auto;
+    }
+
+    .num:hover, #delete:hover, .operator:hover, #equally:hover {
+        background-color: inherit;
+    }
+
+    .num:after, .operator:after, #equally:after, #delete:after {
+        content: "";
+        background: rgb(153, 153, 153);
+        position: absolute;
+        width: 5rem;
+        height: 5rem;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+        margin: auto;
+        border-radius: 50%;
+        transform: scale(1);
+        transition: all 0.25s ease-in-out;
+      }
+    .num:active:after, .operator:active:after, #equally:active:after, #delete:active:after {
+        transform: scale(0);
+        opacity: 1;
+        transition: 0s;
+    }
+}
+.center{
+    align-content: center;
+    text-align: center;
+    color: white;
+}
